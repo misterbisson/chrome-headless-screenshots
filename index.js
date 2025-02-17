@@ -29,7 +29,7 @@ let argv = yargs(process.argv.slice(2))
         description: 'Output directory, defaults to current directory',
         type: 'string',
         demandOption: false,
-        default: '.',
+        default: '/output',
       })
       .option('filename', {
         description: 'Filename of the produced screenshot',
@@ -106,6 +106,7 @@ function takeScreenshot(argv) {
       headless: 'new',
       args: [
         '--no-sandbox',
+        '--disable-setuid-sandbox',
         '--headless',
         '--disable-gpu',
         '--disable-dev-shm-usage',
